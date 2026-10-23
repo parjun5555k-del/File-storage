@@ -1,0 +1,18 @@
+# supabase/config.toml (relevant excerpts)
+project_id = "warrantyvault"
+
+[api]
+enabled = true
+port = 54321
+
+[functions.process-document]
+verify_jwt = true
+
+[functions.draft-warranty-email]
+verify_jwt = true
+
+[functions.delete-document]
+verify_jwt = true
+
+[functions.delete-account]
+verify_jwt = true
