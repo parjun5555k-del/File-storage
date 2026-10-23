@@ -1,0 +1,30 @@
+{
+  "name": "warrantyvault-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WarrantyVault backend — Vercel serverless functions with Neon Postgres + Neon S3",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod",
+    "test": "jest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.450.0",
+    "@aws-sdk/s3-request-presigner": "^3.450.0",
+    "@neondatabase/serverless": "^0.9.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.3.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "@types/jest": "^29.5.0",
+    "eslint": "^8.55.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
