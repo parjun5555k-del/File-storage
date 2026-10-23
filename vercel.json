@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'skip-build'",
+  "devCommand": "vercel dev",
+  "installCommand": "npm install",
+  "framework": null,
+  "routes": [
+    { "src": "/api/process-document(.*)", "dest": "/api/process-document/index.ts" },
+    { "src": "/api/draft-warranty-email(.*)", "dest": "/api/draft-warranty-email/index.ts" },
+    { "src": "/api/delete-document(.*)", "dest": "/api/delete-document/index.ts" },
+    { "src": "/api/delete-account(.*)", "dest": "/api/delete-account/index.ts" },
+    { "src": "/(.*)", "status": 404, "dest": "API route not found" }
+  ]
+}
