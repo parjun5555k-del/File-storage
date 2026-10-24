@@ -4,9 +4,5 @@
   "devCommand": "vercel dev",
   "installCommand": "npm install",
   "framework": null,
-  "outputDirectory": ".",
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/api/(.*)", "dest": "/api/$1/index.js" }
-  ]
+  "outputDirectory": "."
 }
