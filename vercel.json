@@ -4,5 +4,12 @@
   "devCommand": "vercel dev",
   "installCommand": "npm install",
   "framework": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/api/process-document", "dest": "/api/process-document/index.js", "methods": ["POST", "OPTIONS"] },
+    { "src": "/api/draft-warranty-email", "dest": "/api/draft-warranty-email/index.js", "methods": ["POST", "OPTIONS"] },
+    { "src": "/api/delete-document", "dest": "/api/delete-document/index.js", "methods": ["POST", "OPTIONS"] },
+    { "src": "/api/delete-account", "dest": "/api/delete-account/index.js", "methods": ["POST", "OPTIONS"] }
+  ]
 }
