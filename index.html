@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WarrantyVault Backend</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 48px 24px; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+    h1 { color: #0ea5e9; margin-bottom: 8px; }
+    h2 { color: #334155; margin-top: 32px; }
+    .badge { display: inline-block; background: #dbeafe; color: #1e40af; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-bottom: 16px; }
+    .endpoint { background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; margin: 12px 0; border-radius: 8px; border-left: 4px solid #0ea5e9; }
+    .method { display: inline-block; background: #dc2626; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-right: 10px; font-family: monospace; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 13px; }
+    a { color: #0ea5e9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .note { background: #fef3c7; border: 1px solid #f59e0b; padding: 14px; border-radius: 8px; margin-top: 24px; }
+    .error-box { background: #fee2e2; border: 1px solid #ef4444; padding: 14px; border-radius: 8px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="badge">Backend API · Vercel + Neon</div>
+  <h1>🔐 WarrantyVault Backend</h1>
+  <p>API is running on <strong>Vercel</strong> with <strong>Neon Postgres</strong> and <strong>Neon S3</strong> storage.</p>
+
+  <h2>Endpoints (POST only)</h2>
+  <div class="endpoint">
+    <span class="method">POST</span><code>/api/process-document</code><br>
+    File → Gemini extraction → Neon Postgres + Neon S3<br>
+    Body: <code>{ "document_id": "..." }</code><br>
+    Header: <code>Authorization: Bearer &lt;token&gt;</code>
+  </div>
+  <div class="endpoint">
+    <span class="method">POST</span><code>/api/delete-document</code><br>
+    Delete storage object + database row<br>
+    Body: <code>{ "document_id": "..." }</code>
+  </div>
+  <div class="endpoint">
+    <span class="method">POST</span><code>/api/delete-account</code><br>
+    Full account erasure: files, rows, auth user
+  </div>
+  <div class="endpoint">
+    <span class="method">POST</span><code>/api/draft-warranty-email</code><br>
+    Draft warranty claim email (no auto-send)<br>
+    Body: <code>{ "warranty_id": "...", "issue_text": "..." }</code>
+  </div>
+
+  <div class="note">
+    <strong>GitHub:</strong> <a href="https://github.com/parjun5555k-del/File-storage" target="_blank">parjun5555k-del/File-storage</a><br>
+    <strong>API Base:</strong> <code>https://warrantyvault-backend.vercel.app</code>
+  </div>
+
+  <div class="error-box">
+    <strong>⚠️ Deployment Protection is ON</strong><br>
+    All endpoints require an <code>Authorization: Bearer &lt;token&gt;</code> header.<br>
+    To disable: <a href="https://vercel.com/the-og4/warrantyvault-backend/settings" target="_blank">Vercel Dashboard → Deployment Protection → None</a>
+  </div>
+</body>
+</html>
